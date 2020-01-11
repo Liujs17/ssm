@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="lingnan.mapper.RoomMapper">
+
+	<select id="getByRoomId" resultType="Room">
+		select * from room where roomId =
+		#{id}
+	</select>
+
+	<select id="getByType" resultType="Room">
+        select * from room 
+      <where>
+          <if test="roomType != null">
+               roomType like concat('%',#{roomType},'%');
+          </if>
+      </where> 
+    </select>
+	<select id="getList" resultType="Room">
+		select * from room
+	</select>
+
+	<insert id="save">
+		insert into room
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="roomId != null">
+				roomId,
+			</if>
+			<if test="roomType != null">
+				roomType,
+			</if>
+			<if test="roomPrice != null">
+				roomPrice,
+			</if>
+			<if test="roomStock != null">
+				roomStock,
+			</if>
+			<if test="formu != null">
+				formu,
+			</if>
+			<if test="image != null">
+				image,
+			</if>
+		</trim>
+		values
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="roomId != null">
+				#{roomId},
+			</if>
+			<if test="roomType != null">
+				#{roomType},
+			</if>
+			<if test="roomPrice != null">
+				#{roomPrice},
+			</if>
+			<if test="roomStock != null">
+				#{roomStock},
+			</if>
+			<if test="formu != null">
+				#{formu},
+			</if>
+			<if test="image != null">
+				#{image},
+			</if>
+		</trim>
+	</insert>
+
+	<update id="update">
+		update room set
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="roomType != null">
+				roomType = #{roomType},
+			</if>
+			<if test="roomPrice != null">
+				roomPrice = #{roomPrice},
+			</if>
+			<if test="roomStock != null">
+				roomStock = #{roomStock},
+			</if>
+			<if test="formu != null">
+				formu = #{formu},
+			</if>
+			<if test="image != null">
+				image = #{image}
+			</if>
+		</trim>
+		where roomId = #{roomId}
+	</update>
+	<delete id="delete">
+	   delete from room where roomId=#{roomId} 
+	</delete>
+   
+</mapper>
