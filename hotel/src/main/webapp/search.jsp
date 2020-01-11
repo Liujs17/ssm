@@ -13,7 +13,8 @@
 
 <link rel="stylesheet" type="text/css" href="${ctx}/css/reset.css">
 <link rel="stylesheet" type="text/css" href="${ctx}/css/responsive.css">
-<link rel="stylesheet" type="text/css" href="${ctx}/css/header_search.css">
+<link rel="stylesheet" type="text/css"
+	href="${ctx}/css/header_search.css">
 
 <script type="text/javascript" src="${ctx}/js/jquery.js"></script>
 <script type="text/javascript" src="${ctx}/js/main.js"></script>

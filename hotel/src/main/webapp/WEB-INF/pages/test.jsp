@@ -47,7 +47,9 @@
 				<td>${lists.formu}</td>
 				<td>${lists.roomType}</td>
 				<td>${lists.roomPrice}</td>
-				<td>${lists.roomStock}</td>		
+				<td>${lists.roomStock}</td>
+				
+					
 		      </tr>
 			
 		  </c:forEach>
